@@ -1,0 +1,101 @@
+.container {
+  margin: auto;
+  width: 50%;
+  border: none;
+  padding: 10px;
+  text-align: center;
+}
+
+
+h2 {
+  font-weight: regular;
+  font-size: 2em;
+  font-family: "Meta_W07_Light";
+  letter-spacing: 1.5px;
+  color: rgb(0, 0, 0);
+}
+
+p {
+   color: rgb(0, 0, 0);
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto 15px;
+  border: none;
+  
+}
+
+.input-field {
+  width: 100%;
+  padding: 1em; /* Reduced padding */
+  outline: none;
+  border: none;
+  font-size: 1.25em;
+  background: rgb(179, 179, 179);
+  border-radius: 2px 2px 2px 2px;
+  height: 1em; /* Keep height consistent */
+  line-height: 1.5em; /* Adjust line-height for better text alignment */
+}
+
+
+.input-field::placeholder {
+  color: rgb(65, 65, 65);
+}
+
+/* Ensure selected option is visible */
+select.input-field option {
+  background: rgb(179, 179, 179); /* Background color of dropdown options */
+  color: black; /* Text color of options */
+}
+
+.btn {
+  background-color: transparent;
+  color: #e10412;
+  border: 2px solid #e10412;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  border-radius: 2px;
+  height: 3.0em;
+  font-size: 1.5em;
+  font-family: "Meta_W07_Light";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #000000;
+  color: white;
+  opacity: 1;
+  border: 2px solid #000000;
+}
+
+
+input,
+select {
+  background-color: rgb(179, 179, 179);
+}
+
+input:focus,
+select:focus {
+  background-color: rgb(179, 179, 179);
+}
+
+@keyframes fadeOutBorder {
+  0% {
+    outline: 10px solid #ff0000;
+  }
+  100% {
+    outline: 10px solid transparent;
+  }
+}
+
+.fade-border {
+  animation: fadeOutBorder 2s ease-in-out forwards;
+}
+
+
+
