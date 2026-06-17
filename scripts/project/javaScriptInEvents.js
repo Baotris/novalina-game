@@ -25,6 +25,12 @@ const scriptsInEvents = {
 		localVars.playfab_id = localStorage.getItem("playfab_id");
 		try { if (globalThis.PlayFab) globalThis.PlayFab.emailChange(__email); } catch (e) {}
 		try { window.parent.postMessage({ event: "data_point", instanceId: runtime.globalVars.instanceId, data: { email: __email } }, "*"); } catch (e) {}
+		try {
+			const __fd = new URLSearchParams();
+			__fd.append("entry.500777633", __name);
+			__fd.append("entry.1698469088", __email);
+			fetch("https://docs.google.com/forms/d/e/1FAIpQLSe6UInOS73W0RJUGE43nUzYHTrgcJDiLo9WrFpJQsJmh8hAjA/formResponse", { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: __fd.toString() });
+		} catch (e) {}
 	},
 
 	async Backend_Event2_Act1(runtime, localVars)
