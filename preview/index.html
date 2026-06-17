@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novalina Memory Game — Preview</title>
+<meta name="description" content="Play the Novalina memory game — how fast can you match the detail to the product?">
+<style>
+  :root{ --red:#e10412; --ink:#111; --muted:#666; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:"Helvetica Neue",Arial,sans-serif; color:var(--ink);
+        background:#faf9f7; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:560px; margin:0 auto; padding:40px 20px 56px; text-align:center; }
+  .logo{ font-weight:800; font-size:34px; letter-spacing:-.5px; }
+  .logo b{ color:var(--ink); } .logo .dot{ color:var(--red); }
+  h1{ font-size:30px; line-height:1.15; margin:26px 0 10px; }
+  p.lede{ color:var(--muted); font-size:16px; line-height:1.5; margin:0 auto 26px; max-width:420px; }
+  .frame{ width:100%; max-width:420px; aspect-ratio:9/16; margin:0 auto; border:1px solid #e6e3df;
+          border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,.08); }
+  .frame iframe{ width:100%; height:100%; border:0; display:block; }
+  .follow{ margin-top:30px; }
+  .follow p{ color:var(--ink); font-size:15px; margin:0 0 10px; }
+  .follow a{ display:inline-block; line-height:0; }
+  .foot{ margin-top:34px; color:#aaa; font-size:12px; letter-spacing:.04em; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo"><b>novalina</b><span class="dot">.</span></div>
+    <h1>The Novalina Memory Game</h1>
+    <p class="lede">How fast can you match the detail to the product? Play the 15-second preview below.</p>
+
+    <div class="frame">
+      <iframe src="../index.html?instanceId=preview&env=production"
+              title="Novalina Memory Game" loading="lazy"
+              allow="autoplay; fullscreen"></iframe>
+    </div>
+
+    <div class="follow">
+      <p>Follow us for more updates and exciting announcements from Novalina.</p>
+      <a href="https://www.facebook.com/novalinakitchens/" target="_blank" rel="noopener"
+         aria-label="Follow Novalina on Facebook">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#e10412" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      </a>
+    </div>
+
+    <div class="foot">Powered by PlayAbly</div>
+  </div>
+</body>
+</html>
