@@ -20,8 +20,8 @@ const scriptsInEvents = {
 	async Backend_Event2_Act1(runtime, localVars)
 	{
 const searchParams = new URLSearchParams(window.location.search);
-const instanceId = searchParams.get("instanceId");
-const env = searchParams.get("env");
+const instanceId = searchParams.get("instanceId") || "preview";
+const env = searchParams.get("env") || "production";
 
 const originalConsole = console;
 
