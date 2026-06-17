@@ -27,9 +27,9 @@ const scriptsInEvents = {
 		try { window.parent.postMessage({ event: "data_point", instanceId: runtime.globalVars.instanceId, data: { email: __email } }, "*"); } catch (e) {}
 		try {
 			const __fd = new URLSearchParams();
-			__fd.append("entry.500777633", __name);
-			__fd.append("entry.1698469088", __email);
-			fetch("https://docs.google.com/forms/d/e/1FAIpQLSe6UInOS73W0RJUGE43nUzYHTrgcJDiLo9WrFpJQsJmh8hAjA/formResponse", { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: __fd.toString() });
+			__fd.append("entry.260903605", __name);
+			__fd.append("entry.97646001", __email);
+			fetch("https://docs.google.com/forms/d/e/1FAIpQLScexyQcBmK5IiO5KJ-NO2jqfsZSxzANbAP-sqxFh3BEbUJh3w/formResponse", { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: __fd.toString() });
 		} catch (e) {}
 	},
 
