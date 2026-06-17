@@ -13,8 +13,18 @@ const scriptsInEvents = {
 
 	async Game_Event55_Act1(runtime, localVars)
 	{
-		localVars.html_name = document.getElementById("name").value
-		localVars.playfab_id = localStorage.getItem("playfab_id")
+		const __email = (document.getElementById("email") || {}).value || "";
+		const __name = (document.getElementById("name") || {}).value || "";
+		if (!__name || !__email) {
+			try { document.getElementById(!__email ? "email" : "name").reportValidity(); } catch (e) {}
+			localVars.html_name = "";
+			return;
+		}
+		localVars.html_name = __name;
+		localVars.html_email = __email;
+		localVars.playfab_id = localStorage.getItem("playfab_id");
+		try { if (globalThis.PlayFab) globalThis.PlayFab.emailChange(__email); } catch (e) {}
+		try { window.parent.postMessage({ event: "data_point", instanceId: runtime.globalVars.instanceId, data: { email: __email } }, "*"); } catch (e) {}
 	},
 
 	async Backend_Event2_Act1(runtime, localVars)
