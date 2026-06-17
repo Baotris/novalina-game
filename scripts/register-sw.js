@@ -1,1 +1,12 @@
-"use strict";window.C3_RegisterSW=async function(){if(navigator.serviceWorker)try{const e=await navigator.serviceWorker.register("sw.js",{scope:"./"});console.info("Registered service worker on "+e.scope)}catch(e){console.warn("Failed to register service worker: ",e)}};
+"use strict";
+// Service worker disabled — always load fresh. Also clean up any previously-installed SW + caches.
+window.C3_RegisterSW = async function () {};
+(async () => {
+  try {
+    if (navigator.serviceWorker) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.unregister()));
+    }
+    if (self.caches) { const keys = await caches.keys(); await Promise.all(keys.map(k => caches.delete(k))); }
+  } catch (e) {}
+})();
