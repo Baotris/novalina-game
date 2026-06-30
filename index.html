@@ -17,12 +17,50 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="cta.css">
 
+	<style>
+	html, body { position: fixed !important; top: 0; left: 0; width: 100% !important; height: 100% !important; overflow: hidden !important; overscroll-behavior: none !important; }
+	</style>
+	<script>
+	/* Debounce resize so the mobile URL-bar resize storm causes ONE re-fit, not a
+	   continuous re-layout flicker. Must run before the game registers its listeners. */
+	(function(){
+	  function wrap(target){
+	    if(!target || !target.addEventListener || target.__npWrapped) return;
+	    target.__npWrapped = true;
+	    var orig = target.addEventListener;
+	    target.addEventListener = function(type, listener, opts){
+	      if(type === "resize" && typeof listener === "function"){
+	        var t;
+	        var d = function(e){ clearTimeout(t); t = setTimeout(function(){ try{ listener(e); }catch(_){}}, 300); };
+	        return orig.call(this, type, d, opts);
+	      }
+	      return orig.call(this, type, listener, opts);
+	    };
+	  }
+	  wrap(window);
+	  if (window.visualViewport) wrap(window.visualViewport);
+	})();
+	</script>
 
-</head> 
+</head>
  
 <body>
 
-	
+<div id="np-preload" style="position:fixed;inset:0;background:#fff;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:-apple-system,Helvetica,Arial,sans-serif;color:#111;transition:opacity .45s ease">
+  <div style="font-size:34px;font-weight:800;letter-spacing:-.5px">novalina<span style="color:#e10412">.</span></div>
+  <div style="margin-top:14px;font-size:13px;color:#999;letter-spacing:.08em">loading&hellip;</div>
+</div>
+<script>
+(function(){
+  var done=false, t=null;
+  function hide(){ if(done) return; done=true; var p=document.getElementById("np-preload"); if(!p) return; p.style.opacity="0"; setTimeout(function(){ if(p&&p.parentNode) p.parentNode.removeChild(p); },500); }
+  function settle(){ if(t) clearTimeout(t); t=setTimeout(hide, 1600); }
+  if(document.readyState==="complete") settle(); else window.addEventListener("load", settle);
+  window.addEventListener("orientationchange", settle);
+  setTimeout(hide, 9000);
+})();
+</script>
+
 
 <script>
 if (location.protocol.substr(0, 4) === "file")
